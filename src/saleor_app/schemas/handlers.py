@@ -37,8 +37,14 @@ class WebhookHandlers(BaseModel):
     product_variant_created: Optional[Callable[[Payload, DomainName], Awaitable]] = None
     product_variant_updated: Optional[Callable[[Payload, DomainName], Awaitable]] = None
     product_variant_deleted: Optional[Callable[[Payload, DomainName], Awaitable]] = None
-    product_variant_out_of_stock: Optional[Callable[[Payload, DomainName], Awaitable]] = None
-    product_variant_back_in_stock: Optional[Callable[[Payload, DomainName], Awaitable]] = None
+    product_variant_out_of_stock: Optional[
+        Callable[[Payload, DomainName], Awaitable]
+    ] = None
+    product_variant_back_in_stock: Optional[
+        Callable[[Payload, DomainName], Awaitable]
+    ] = None
+
+    report_api_call: Optional[Callable[[Payload, DomainName], Awaitable]] = None
 
     checkout_created: Optional[Callable[[Payload, DomainName], Awaitable]] = None
     checkout_updated: Optional[Callable[[Payload, DomainName], Awaitable]] = None
@@ -60,8 +66,10 @@ class WebhookHandlers(BaseModel):
     payment_refund: Optional[Callable[[Payload, DomainName], Awaitable]] = None
     payment_void: Optional[Callable[[Payload, DomainName], Awaitable]] = None
 
-    shipping_list_methods_for_checkout: Optional[Callable[[Payload, DomainName], Awaitable]] = None
-    
+    shipping_list_methods_for_checkout: Optional[
+        Callable[[Payload, DomainName], Awaitable]
+    ] = None
+
     translation_created: Optional[Callable[[Payload, DomainName], Awaitable]] = None
     translation_updated: Optional[Callable[[Payload, DomainName], Awaitable]] = None
 
